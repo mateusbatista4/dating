@@ -21,7 +21,7 @@ namespace API
         private readonly IConfiguration _config;
         public Startup(IConfiguration config)
         {
-            
+
             _config = config;
         }
 
@@ -36,6 +36,7 @@ namespace API
             });
             services.AddControllers();
             services.AddSwaggerGen();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +52,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:4200"));
 
             app.UseAuthorization();
 
