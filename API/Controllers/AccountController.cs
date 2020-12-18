@@ -21,7 +21,7 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<AppUser>> Register(RegisterDto registerDto){
             
-            if(await UserExists(registerDto.Username)) return BadRequest("Usuário já existe");
+            if(await UserExists(registerDto.Username)) return BadRequest("Usuário já cadastrado");
             
             using var hmac = new HMACSHA512();
 
