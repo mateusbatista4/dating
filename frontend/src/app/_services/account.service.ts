@@ -27,15 +27,29 @@ export class AccountService {
       })
     )
   }
-
-  setCurrentUser(user: User){
-    this.currentuserSource.next(user);
-  }
-
+  
   logout(){
       localStorage.removeItem('user');
       this.currentuserSource.next(null);
   }
+
+  register(model) {
+    return this.http.post(this.baseUrl + "account/register/", model).pipe(
+      map((response: User) => {
+          const user = response ;
+          if(user){
+            console.log("chegou no pipe");
+            localStorage.setItem('user', JSON.stringify(user));
+            this.currentuserSource.next(user);
+          }
+      })
+    )
+  }
+  
+  setCurrentUser(user: User){
+    this.currentuserSource.next(user);
+  }
+
 
 
 }

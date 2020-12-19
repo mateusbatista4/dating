@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
 
   token  = ''
 
-
+  
   constructor(public accountService : AccountService) { }
 
   ngOnInit(): void {
@@ -27,11 +27,11 @@ export class NavComponent implements OnInit {
         console.log(response);
       },
       error => {
-        console.log(error)
-
+        console.log(error);
       }
     )
   }
+   
   logout(){
     this.accountService.logout();
    
