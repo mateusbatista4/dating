@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
       response => {
         console.log('foi');
         this.cancel();
+        this.router.navigateByUrl("/members");
     }, error => {
       this.toastr.error("Impossible to register","Error");
     });
