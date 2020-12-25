@@ -14,9 +14,6 @@ export class NavComponent implements OnInit {
 
   model: any = {};
 
-  token = ''
-
-
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -24,14 +21,14 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-    
+
     this.accountService.login(this.model).subscribe(
       response => {
-        this.toastr.success("Bem vindo",);
+        this.toastr.success("Bem vindo!",);
         this.router.navigate(['members/']);
       },
       error => {
-        this.toastr.error(error.error,"Erro de login");
+        this.toastr.error("Impossible to login", "Error");
       }
     )
   }

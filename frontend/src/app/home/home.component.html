@@ -2,11 +2,18 @@
     <div *ngIf="!registerMode" style="text-align: center;">
         <h1>Find your Match!</h1>
         <p class="lead">Join our comunity of Love... </p>
+        <br>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">"Where there is love there is life."</p>
+            <footer class="blockquote-footer">Mahatma <cite title="Source Title">Gandhi</cite></footer>
+          </blockquote>
+          <br>
         <div class="text-center">
             <button class="btn-primary btn-lg mr-2" (click)="registerToggle(true)">Register</button>
             <button class="btn-info btn-lg">Learn more</button>
         </div>
     </div>
+    
 
     <div class="container" style="margin-top: 100px;" *ngIf="registerMode">
         <div class="row justify-content-center">
