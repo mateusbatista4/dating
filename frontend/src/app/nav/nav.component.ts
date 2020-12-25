@@ -24,9 +24,10 @@ export class NavComponent implements OnInit {
   }
 
   login() {
+    
     this.accountService.login(this.model).subscribe(
       response => {
-        this.toastr.success('Bem vindo');
+        this.toastr.success("Bem vindo",);
         this.router.navigate(['members/']);
       },
       error => {
