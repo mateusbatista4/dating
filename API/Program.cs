@@ -15,7 +15,7 @@ namespace API
         {
             CreateHostBuilder(args).Build().Run();
         }
-
+        // dotnet run --urls http://0.0.0.0:5001 to run in local wifi
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

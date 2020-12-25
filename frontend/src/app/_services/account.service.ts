@@ -27,7 +27,7 @@ export class AccountService {
       })
     )
   }
-  
+
   logout(){
       localStorage.removeItem('user');
       this.currentuserSource.next(null);
@@ -38,7 +38,7 @@ export class AccountService {
       map((response: User) => {
           const user = response ;
           if(user){
-            console.log("chegou no pipe");
+            
             localStorage.setItem('user', JSON.stringify(user));
             this.currentuserSource.next(user);
           }
