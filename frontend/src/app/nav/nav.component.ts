@@ -27,16 +27,13 @@ export class NavComponent implements OnInit {
         this.toastr.success("Bem vindo!",);
         this.router.navigate(['members/']);
       },
-      error => {
-        this.toastr.error("Impossible to login", "Error");
-      }
+
     )
   }
 
   logout() {
     this.accountService.logout();
     this.router.navigate(['']);
-
   }
 
 

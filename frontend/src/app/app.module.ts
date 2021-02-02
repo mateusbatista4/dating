@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,10 +12,12 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import {MessagesComponent} from './messages/messages.component';
+import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { ToastrModule } from 'ngx-toastr';
 import { TesstErrorsComponent } from './errors/tesst-errors/tesst-errors.component';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { TesstErrorsComponent } from './errors/tesst-errors/tesst-errors.compone
     MemberDetailComponent,
     MessagesComponent,
     ListsComponent,
-    TesstErrorsComponent
+    TesstErrorsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ import { TesstErrorsComponent } from './errors/tesst-errors/tesst-errors.compone
       positionClass: 'toast-bottom-right',
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

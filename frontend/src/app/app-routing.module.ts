@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
@@ -17,11 +18,12 @@ const routes: Routes = [
       { path: 'members', component: MemberListComponent, canActivate: [AuthGuard] },
       { path: 'members/:id', component: MemberDetailComponent },
       { path: 'messages', component: MessagesComponent },
+     
       { path: 'lists', component: ListsComponent },
     ]
   },
-
-  { path: '**', component: HomeComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
