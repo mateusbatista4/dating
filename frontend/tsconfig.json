@@ -6,6 +6,12 @@
 */
 {
   "files": [],
+  "typeRoots": ["node_modules/@types", "node_modules/@angular"],
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+  },
   "references": [
     {
       "path": "./tsconfig.app.json"
@@ -13,5 +19,5 @@
     {
       "path": "./tsconfig.spec.json"
     }
-]
+    ]
 }
